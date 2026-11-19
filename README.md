@@ -53,3 +53,12 @@ My prediction:
 5
 ```
 Why: `a.add()` makes items 1. `a.items = -5` is refused by the setter because -5 is below 0, so it stays 1 and the first print shows 1. For `BigBag`, `add()` calls `super.add()` twice, so each `b.add()` adds 2. After two calls items is 4. Then `b.items = b.items + 1` makes it 5, and the setter accepts it.
+
+
+Real output:
+```
+1
+5
+```
+
+Was I right? Yes, both lines matched my prediction.
