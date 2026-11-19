@@ -34,3 +34,13 @@ Because anyone could write `card.balance = 999999` and give themselves free mone
 - `print(237 * 17 ~/ 100);` prints `40` (an int, decimals cut off)
 
 We use `~/` because RWF amounts must be whole numbers.
+
+## Part 4: Bug table
+| Bug | The line | Why it is wrong (your words) | Your fix |
+|-----|----------|------------------------------|----------|
+| 1 | `String _brand;` and `int _battery;` | The fields have no starting value, and Dart does not allow that for non-nullable fields | `String _brand = '';` and `int _battery = 0;` |
+| 2 | `SmartPhone(String brand, int battery, String system) {` | The constructor does not call the parent constructor, but Phone needs brand and battery | Add `: super(brand, battery)` |
+| 3 | `@override void restart()` | `@override` only works if the parent has that method, and Phone has no `restart` | Remove `@override` |
+| 4 | `p.battery = 100;` | There is a getter but no setter for battery | Add `set battery(int value)` that accepts only 0 to 100 |
+| 5 | `print(p.battery());` | `battery` is a getter, not a method, so it must not have `()` | `print(p.battery);` |
+| Not a bug | `Phone p = new Phone('Tecno', 50);` | `new` is the old style but it is still valid in Dart, so the code works | (none) |
