@@ -44,3 +44,12 @@ We use `~/` because RWF amounts must be whole numbers.
 | 4 | `p.battery = 100;` | There is a getter but no setter for battery | Add `set battery(int value)` that accepts only 0 to 100 |
 | 5 | `print(p.battery());` | `battery` is a getter, not a method, so it must not have `()` | `print(p.battery);` |
 | Not a bug | `Phone p = new Phone('Tecno', 50);` | `new` is the old style but it is still valid in Dart, so the code works | (none) |
+
+
+## Part 5
+My prediction:
+```
+1
+5
+```
+Why: `a.add()` makes items 1. `a.items = -5` is refused by the setter because -5 is below 0, so it stays 1 and the first print shows 1. For `BigBag`, `add()` calls `super.add()` twice, so each `b.add()` adds 2. After two calls items is 4. Then `b.items = b.items + 1` makes it 5, and the setter accepts it.
