@@ -68,21 +68,24 @@ class StudentCard extends BusCard {
 }
 
 void main() {
-  BusCard card = BusCard('Ama', 1000);
-  card.owner = 'Al';
+  // My numbers: D = 61, L = 1
+  // Starting balance = 1610 RWF, Bus fare = 261 RWF, Discount = 11%
+
+  BusCard card = BusCard('Alsayed', 1610);
+  card.owner = 'Al'; // refused: name too short
   card.showInfo();
 
-  card.owner = 'Ama Kelly';
+  card.owner = 'Alsayed Abdalsalam';
   card.showInfo();
 
-  card.topUp(100);
+  card.topUp(100); // refused
   card.topUp(2000);
 
-  card.pay(200);
-  card.pay(200);
+  card.pay(261);
+  card.pay(261);
   card.showInfo();
 
-  StudentCard student = StudentCard('Ama Kelly', 1000, 10);
-  student.pay(200);
+  StudentCard student = StudentCard('Alsayed Abdalsalam', 1610, 11);
+  student.pay(261);
   student.showInfo();
 }
