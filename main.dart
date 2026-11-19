@@ -35,4 +35,13 @@ class BusCard {
       print('Error: top-up must be 500 to 50000 RWF');
     }
   }
+
+  void pay(int fare) {
+    if (fare > _balance) {
+      print('Card declined');
+    } else {
+      _balance = _balance - fare;
+      print('Paid $fare RWF');
+    }
+  }
 }
